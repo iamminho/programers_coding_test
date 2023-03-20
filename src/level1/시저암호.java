@@ -10,13 +10,8 @@ public class 시저암호 {
         StringBuilder builder = new StringBuilder();
 
         for (char v: s.toCharArray()) {
-            char moved;
-            if (v == ' ') moved = ' ';
-            else {
-                int offset = getOffset(v);
-                moved = move(n, v, offset);
-            }
-            builder.append(moved);
+            int offset = getOffset(v);
+            builder.append(move(n, v, offset));
         }
 
         System.out.println("result = " + builder.toString());
@@ -27,6 +22,7 @@ public class 시저암호 {
     }
 
     public static char move(int n, char c, int offset) {
+        if (!Character.isAlphabetic(c)) return c;
         return (char) ((c + n - offset) % 26 + offset);
     }
 }
