@@ -38,9 +38,12 @@ public class K_번째_수 {
     }
 
     private static int command(int[] cmd, int[] array) {
-        int[] destArray = Arrays.copyOfRange(array, cmd[0] - 1, cmd[1]);
+        int from = cmd[0] - 1;
+        int to = cmd[1];
+        int k = cmd[2] - 1;
+        int[] destArray = Arrays.copyOfRange(array, from, to);
         Arrays.sort(destArray);
-        return destArray[cmd[2] - 1];
+        return destArray[k];
     }
 }
 
