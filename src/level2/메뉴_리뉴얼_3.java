@@ -4,7 +4,8 @@ import java.util.*;
 
 public class 메뉴_리뉴얼_3 {
     /*
-     * 1. 각 주문마다 만들 수 있는 조합을 만들어 낼것.
+     * wx 는 xw도 해당되어야 한다.
+     * 즉, xw가 있는 문자라면 정렬해서 wx로 바꿔야 한다.
      * */
     public static void main(String[] args) {
         String[] orders = {"XYZ", "XWY", "WXA"};
