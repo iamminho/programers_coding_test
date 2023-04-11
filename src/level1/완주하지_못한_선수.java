@@ -16,14 +16,12 @@ public class 완주하지_못한_선수 {
     private static String solution(String[] participant, String[] completion) {
         Map<String, Long> participantMap = toMap(participant);
         for (String s : completion) {
-            participantMap.put(s, participantMap.get(s) - 1);
+            long v = participantMap.get(s) - 1;
+            participantMap.put(s, v);
+            if (v == 0) participantMap.remove(s);
         }
 
-        return participantMap.entrySet().stream()
-                .filter(s -> s.getValue() > 0)
-                .findFirst()
-                .map(entry -> entry.getKey())
-                .orElse("noting");
+        return participantMap.keySet().iterator().next();
     }
 
     private static Map<String, Long> toMap(String[] participant) {
