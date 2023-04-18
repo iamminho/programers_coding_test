@@ -1,9 +1,6 @@
 package level3;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class 디스크_컨트롤러 {
     public static class Work {
@@ -30,7 +27,7 @@ public class 디스크_컨트롤러 {
             works[i++] = new Work(job[0], job[1]);
         }
 
-        Arrays.sort(works, (a, b) -> a.start - b.start);
+        Arrays.sort(works, Comparator.comparingInt(a -> a.start));
 
         return getResult(works);
     }
@@ -40,7 +37,7 @@ public class 디스크_컨트롤러 {
         int time = 0;
         int size = works.length;
         Queue<Work> q = new LinkedList<>(Arrays.asList(works));
-        PriorityQueue<Work> pq = new PriorityQueue<>((a, b) -> a.time - b.time);
+        PriorityQueue<Work> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.time));
 
 
         while (!q.isEmpty() || !pq.isEmpty()) {
