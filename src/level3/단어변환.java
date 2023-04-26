@@ -4,17 +4,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class 단어변환 {
-    public static class Word {
-        String name;
-        int order;
+    public static class State {
+        String word;
+        int step;
 
-        public Word(String name, int order) {
-            this.name = name;
-            this.order = order;
+        public State(String word, int step) {
+            this.word = word;
+            this.step = step;
         }
     }
-
-    static boolean[] visited;
 
     public static void main(String[] args) {
         String begin = "hit";
@@ -25,42 +23,39 @@ public class 단어변환 {
     }
 
     public static int solution(String begin, String target, String[] words) {
-        visited = new boolean[words.length];
-        return bfs(begin, target, words);
+        return find(begin, target, words);
     }
 
-    private static int bfs(String begin, String target, String[] words) {
-        Queue<Word> que = new LinkedList<>();
-        que.add(new Word(begin, 0));
-        int min = Integer.MAX_VALUE;
+    private static int find(String begin, String target, String[] words) {
+        boolean[] visited = new boolean[words.length];
+        Queue<State> que = new LinkedList<>();
+        que.add(new State(begin, 0));
+
 
         while (!que.isEmpty()) {
-            Word w = que.poll();
-            String w_name = w.name;
-            int w_order = w.order;
+            State state = que.poll();
 
-            if (w_name.equals(target)) {
-                min = Math.min(min, w.order);
+            if (state.word.equals(target)) {
+                return state.step;
             }
 
             for (int i = 0; i < words.length; i++) {
-                if (!visited[i] && canChange(w_name, words[i])) {
-                    que.add(new Word(words[i], w_order + 1));
-                    visited[i] = true;
-                }
+                if (visited[i] || !isConvertable(state.word, words[i])) continue;
+
+                que.add(new State(words[i], state.step + 1));
+                visited[i] = true;
             }
         }
 
-        if (min > 50) return 0;
-        return min;
+        return 0;
     }
 
-    private static boolean canChange(String begin, String word) {
-        int count = 0;
+    private static boolean isConvertable(String begin, String word) {
+        int diff = 0;
         for (int i = 0; i < begin.length(); i++) {
-            if (begin.charAt(i) != word.charAt(i)) count++;
+            if (begin.charAt(i) != word.charAt(i)) diff++;
         }
 
-        return count == 1;
+        return diff == 1;
     }
 }
