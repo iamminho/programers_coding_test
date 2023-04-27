@@ -22,7 +22,7 @@ public class 큰_수_만들기_2 {
             stack.push(c);
         }
 
-        while (--k > 0) {
+        while (k-- > 0) {
             stack.pop();
         }
 
