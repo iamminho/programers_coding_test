@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 public class 체육복 {
     public static void main(String[] args) {
         int n = 5;
-        int[] lost = new int[]{1, 2, 4}; // 1, 2, 4
-        int[] reserve = new int[]{2, 3, 5, 6}; // 3, 5, 6
+        int[] lost = new int[]{1, 2, 4};
+        int[] reserve = new int[]{2, 3, 5, 6};
         int answer = solution(n, lost, reserve);
         System.out.println("answer = " + answer);
     }
