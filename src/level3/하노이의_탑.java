@@ -1,7 +1,6 @@
 package level3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class 하노이의_탑 {
@@ -21,6 +20,7 @@ public class 하노이의_탑 {
         hanoi(n, 1, 3, process);
         return process.toArray(new int[0][]);
     }
+
     private static void hanoi(int n, int from, int to, List<int[]> process) {
         if (n == 1) {
             process.add(new int[]{from, to});

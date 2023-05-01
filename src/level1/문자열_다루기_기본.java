@@ -8,7 +8,7 @@ public class 문자열_다루기_기본 {
     }
 
     public static boolean solution(String s) {
-        return(isNumber(s));
+        return (isNumber(s));
     }
 
     public static boolean isNumber(String s) {

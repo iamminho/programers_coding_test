@@ -33,10 +33,10 @@ public class 교점에_별_만들기 {
 
     private static String[] solution(int[][] line) {
         List<Point> points = new ArrayList<>();
-        for(int i = 0; i < line.length - 1; i++) {
+        for (int i = 0; i < line.length - 1; i++) {
             for (int j = i + 1; j < line.length; j++) {
                 Point intersaction = intersaction(line[i][0], line[i][1], line[i][2],
-                                                    line[j][0], line[j][1], line[j][2]);
+                        line[j][0], line[j][1], line[j][2]);
                 if (intersaction != null) {
                     points.add(intersaction);
                 }
@@ -66,8 +66,9 @@ public class 교점에_별_만들기 {
         return result;
     }
 
-    private static class Point{
+    private static class Point {
         public final long x, y;
+
         private Point(long x, long y) {
             this.x = x;
             this.y = y;
@@ -80,7 +81,7 @@ public class 교점에_별_만들기 {
 
         if (x % 1 != 0 || y % 1 != 0) return null;
 
-        return new Point((long)x, (long)y);
+        return new Point((long) x, (long) y);
     }
 
     private static Point getMinIntersaction(List<Point> points) {
@@ -99,7 +100,7 @@ public class 교점에_별_만들기 {
         long x = Long.MIN_VALUE;
         long y = Long.MIN_VALUE;
 
-        for (Point p: points) {
+        for (Point p : points) {
             if (p.x > x) x = p.x;
             if (p.y > y) y = p.y;
         }

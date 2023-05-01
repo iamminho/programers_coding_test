@@ -4,6 +4,7 @@ public class 쿼드압축_후_개수_세기 {
     private static class Count {
         private final int zero;
         private final int one;
+
         public Count(int zero, int one) {
             this.zero = zero;
             this.one = one;

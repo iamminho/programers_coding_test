@@ -13,7 +13,7 @@ public class 이상한_문자_만들기 {
             builder.append(convertor(value));
             builder.append(" ");
         }
-        System.out.println("builder = " + builder.deleteCharAt(builder.length() -1).toString());
+        System.out.println("builder = " + builder.deleteCharAt(builder.length() - 1).toString());
     }
 
     public static String convertor(String value) {
